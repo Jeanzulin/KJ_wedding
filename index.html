@@ -10,11 +10,19 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container card">
         <img src="CARD_front.png">
         <img src="CARD_back.png">
-
     </div>
+    <script>
+    var cards = document.querySelectorAll('.card');
+
+        [...cards].forEach((card)=>{
+          card.addEventListener( 'click', function() {
+            card.classList.toggle('is-flipped');
+          });
+        });
+    </script>
 </body>
 
 </html>
