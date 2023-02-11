@@ -10,18 +10,27 @@
 </head>
 
 <body>
-    <div class="container card">
+    <div class="container card" id="card">
         <img src="CARD_front.png">
         <img src="CARD_back.png">
     </div>
     <script>
-    var cards = document.querySelectorAll('.card');
+        var cards = document.querySelectorAll('.card');
 
-        [...cards].forEach((card)=>{
-          card.addEventListener( 'click', function() {
-            card.classList.toggle('is-flipped');
-          });
+        [...cards].forEach((card) => {
+            card.addEventListener('click', function () {
+                card.classList.toggle('is-flipped');
+            });
         });
+        window.addEventListener('resize', function (event) {
+            var windowWidth = window.screen.width
+            if (windowWidth > 768) {
+                var element = document.getElementById('card');
+                element.classList.remove('is-flipped');
+                console.log("texs")
+            }
+        });
+
     </script>
 </body>
 
