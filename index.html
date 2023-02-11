@@ -14,6 +14,7 @@
         <img src="CARD_front.png">
         <img src="CARD_back.png">
     </div>
+    <p id="note" style="position:absolute;bottom:3%;left:50%;color:#ffff;transform: translate(-50%, -50%);font-size: 12px;">( Click the card )</p>
     <script>
         var cards = document.querySelectorAll('.card');
 
@@ -27,7 +28,7 @@
             if (windowWidth > 768) {
                 var element = document.getElementById('card');
                 element.classList.remove('is-flipped');
-                console.log("texs")
+                document.getElementById("note").innerHTML = "( Mouse move to the card )";
             }
         });
 
