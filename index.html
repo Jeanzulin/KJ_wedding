@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="https://jeanzulin.github.io/KJ_wedding/fb.jpg">
     <title>Wedding Card - Kevin & Jean</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,7 +17,8 @@
         <img src="CARD_front.png">
         <img src="CARD_back.png">
     </div>
-    <p id="note" style="position:absolute;bottom:3%;left:50%;color:#ffff;transform: translate(-50%, -50%);font-size: 12px;">( Mouse move to the card )</p>
+    <p id="note"
+        style="position:absolute;bottom:3%;left:50%;color:#ffff;transform: translate(-50%, -50%);font-size: 12px;"></p>
     <script>
         var cards = document.querySelectorAll('.card');
 
@@ -23,12 +27,26 @@
                 card.classList.toggle('is-flipped');
             });
         });
+
+
+        function wording() {
+            var windowWidth = window.innerWidth;
+            if (windowWidth < 768) {
+                return "( Click the card )";
+            } else {
+                return "( Mouse move onto the card )";
+            }
+        }
+        document.getElementById("note").innerHTML = wording();
+
+
         window.addEventListener('resize', function (event) {
-            var windowWidth = window.screen.width
-            if (windowWidth > 768) {
+            var windowWidth = window.innerWidth;
+            console.log(windowWidth);
+            document.getElementById("note").innerHTML = wording();
+            if (windowWidth < 768) {
                 var element = document.getElementById('card');
                 element.classList.remove('is-flipped');
-                document.getElementById("note").innerHTML = "( Click the card )";
             }
         });
 
